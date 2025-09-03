@@ -1,0 +1,314 @@
+.globalContainer {
+  margin: 0 auto;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 20px 16px 10px 16px;
+  background-color: #d4c9f8;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  /* iOS specific scroll prevention */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  touch-action: pan-y pinch-zoom;
+}
+
+.logoHeader {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  /* margin-bottom: 10px; */
+}
+.logo {
+  max-width: 250px;
+  height: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100dvh - 140px); /* Account for header, footer and padding */
+  overflow-y: auto;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.progressContainer {
+  width: 90%;
+  margin: 10px 0 5px;
+}
+
+.progressBorder {
+  border: 1px solid #3d116a;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 7px;
+  background-color: transparent;
+}
+
+.progressBar {
+  background-color: white;
+  border-radius: 20px;
+  height: 10px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  background-color: #3d116a;
+  height: 100%;
+  width: 0%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.timerIcon {
+  height: 22px;
+  vertical-align: middle;
+}
+
+.progressText {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.questionContainer {
+  width: 90%;
+  padding: 20px;
+  color: white;
+  background-color: #3d116a;
+  border-radius: 10px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 80%;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.answerBox {
+  border: 1px solid #707070;
+  background-color: white;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.15s;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.answerBox:hover,
+.answerBox:focus-visible {
+  background-color: #f3e8ff;
+  outline: none;
+}
+.answerBox:active {
+  transform: scale(0.97);
+}
+
+.active {
+  background-color: #e9d5ff;
+  border-color: #9333ea;
+  box-shadow: 0 0 0 2px #c084fc55;
+}
+
+/* Correct / wrong reveal colors */
+.correct {
+  background-color: #c6f6d5; /* light green */
+  border-color: #16a34a;
+  box-shadow: 0 0 0 2px #16a34a55;
+}
+.wrong {
+  background-color: #fecaca; /* light red */
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px #dc262655;
+}
+
+.metaRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 0.75rem;
+}
+.metaBadge {
+  background: #ffffff55;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #9333ea55;
+  backdrop-filter: blur(4px);
+  font-weight: 600;
+}
+
+.controlsRow {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.nextBtn,
+.restartBtn {
+  background: #3d116a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+}
+.nextBtn:hover,
+.restartBtn:hover {
+  filter: brightness(1.1);
+}
+.nextBtn:active,
+.restartBtn:active {
+  transform: translateY(1px);
+}
+.nextBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.resultBox {
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+.resultBox h2 {
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+}
+.resultBox p {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .globalContainer {
+    padding: 16px 12px 60px 12px;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    /* Enhanced iOS scroll prevention */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+  }
+
+  .logo {
+    max-width: 250px;
+  }
+
+  .logoHeader {
+    font-size: 1rem;
+  }
+
+  .content {
+    gap: 12px;
+    max-height: calc(100dvh - 140px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding-bottom: 10px;
+  }
+
+  .questionContainer {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .answers {
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 5px;
+  }
+
+  .answerBox {
+    padding: 14px 12px;
+    font-size: 13px;
+    max-width: none;
+  }
+
+  .progressContainer {
+    margin: 8px 0;
+  }
+
+  .progressText {
+    font-size: 12px;
+  }
+
+  .timerIcon {
+    height: 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .globalContainer {
+    padding: 12px 8px 60px 8px;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    /* Enhanced iOS scroll prevention for smaller devices */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overscroll-behavior: none;
+    z-index: 1;
+  }
+
+  .content {
+    max-height: calc(100dvh - 130px);
+    overflow-y: auto;
+    gap: 10px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding-bottom: 10px;
+  }
+
+  .answerBox {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+
+  .questionContainer {
+    padding: 14px;
+    font-size: 13px;
+  }
+}
